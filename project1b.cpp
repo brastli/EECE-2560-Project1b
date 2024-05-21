@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+using namespace std; 
 
 class Response {
 private:
@@ -19,7 +20,7 @@ public:
         return incorrect;
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const Response& response) {
+    friend ostream& operator<<(ostream& os, const Response& response) {
         os << "(" << response.correct << ", " << response.incorrect << ")";
         return os;
     }
@@ -27,7 +28,7 @@ public:
 
 class Mastermind {
 private:
-    std::vector<int> secretCode;
+    vector<int> secretCode;
     int n;
     int m;
 public:
@@ -40,16 +41,16 @@ public:
 
     void printSecretCode() const {
         for (int num : secretCode) {
-            std::cout << num << " ";
+            cout << num << " ";
         }
-        std::cout << std::endl;
+        cout << std::endl;
     }
 
-    std::vector<int> humanGuess() {
-        std::vector<int> guess;
+    vector<int> humanGuess() {
+        vector<int> guess;
         int temp;
         for (int i = 0; i < n; ++i) {
-            std::cin >> temp;
+            cin >> temp;
             guess.push_back(temp);
         }
         return guess;
@@ -57,7 +58,7 @@ public:
 
     Response getResponse(const std::vector<int>& guess) {
         int correct = 0, incorrect = 0;
-        std::vector<bool> secretChecked(n, false), guessChecked(n, false);
+        vector<bool> secretChecked(n, false), guessChecked(n, false);
 
 
         for (int i = 0; i < n; ++i) {
@@ -92,19 +93,19 @@ public:
         printSecretCode(); 
 
         while (guessCount < 10) {
-            std::cout << "Enter your guess: ";
-            std::vector<int> guess = humanGuess();
+            cout << "Enter your guess: ";
+            vector<int> guess = humanGuess();
             Response response = getResponse(guess);
-            std::cout << response << std::endl;
+            cout << response << endl;
 
             if (isSolved(response)) {
-                std::cout << "Congratulations! You've cracked the code!" << std::endl;
+                cout << "Congratulations! You've cracked the code!" << endl;
                 return;
             }
             guessCount++;
         }
 
-        std::cout << "Sorry, you didn't guess the code in 10 tries. You lose." << std::endl;
+        cout << "Sorry, you didn't guess the code in 10 tries. You lose." << endl;
     }
 };
 
