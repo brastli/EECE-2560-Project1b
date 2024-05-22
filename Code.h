@@ -1,4 +1,10 @@
-﻿#include <vector>
+// Name: Sofia Kolobaev, Page Patterson, Minghao Zhu
+// Group ID: kolpatzhu
+// Group Number: 6
+// Problem Set: Project 1
+// Header file Code.h. Contains class definition for code
+
+#include <vector>
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -108,11 +114,6 @@ public:
         cout << "Sorry, you didn't guess the code in 10 tries. You lose." << endl;
     }
 };
-
-int main() {
-    Mastermind game;
-    game.playGame();
-    return 0;
-}
+#endif
 
 
