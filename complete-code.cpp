@@ -1,3 +1,11 @@
+// Name: Sofia Kolobaev, Page Patterson, Minghao Zhu
+// Group ID: kolpatzhu
+// Group Number: 6
+// Problem Set: Project 1
+// File contains functions for humanGuess, isSolved, getResponse, playGame
+// 
+
+
 #include <vector>
 #include <iostream>
 #include <cstdlib>
